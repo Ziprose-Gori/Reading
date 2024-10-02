@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Reading Culture</title>
+    <style>
+        body{
+            background: linear-gradient(90deg, rgb(4, 197, 255) 0%, rgb(139, 102, 241) 100%);
+        }
+        h1{
+            text-align:center;
+        }
+        h2{
+            text-align:center;
+        }
+        img{
+            width:600px
+        }
+        p{
+            font-size:20px;
+        }
+        footer{
+            text-align:center;
+            font-family:monospace;
+            font-size:18px;
+        }
+        .dark{
+            background:black;
+        }
+        .dark .content{
+            background:rgba(255,255,255,0.1);
+            color:#ffffff;
+        }
+        .dark .theme{
+            background:#83cee0;
+            color:#000000;
+        }
+        .dark .theme:hover{
+            background:#ffffff;
+        }
+        .dark .link{
+            color:#83cee0;
+        }
+        .dark footer{
+            color:#ffffff;
+        }
+        .dark .coder{
+            color:#83cee0;
+        }
+        .more-on-reading{
+            border-radius:10px;
+            transition:all 200ms ease-in-out;
+        }
+        .more-on-reading:hover{
+            filter:contrast(70%);
+            transform:scale(1.1);
+        }
+        .grid{
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+            grid-gap:20px;
+
+        }
+        .grid img{
+            width:100%;
+            border-radius:10px;
+            margin:20px 0;       
+        }
+        .grid img:hover{
+            transform:scale(1.5);
+        }
+        .content{
+            max-width:600px;
+            margin:30px auto;
+            background:white;
+            padding:20px;
+            border-radius:20px;
+        }
+        .link{
+            font-weight:bold;
+            text-decoration:none;
+        }
+        .link:hover{
+            text-decoration:underline;
+        }
+        .theme{
+            display:block;
+            margin:20px auto;
+            padding:10px;
+            background:#000000;
+            color:#ffffff;
+            border-radius:10px;
+
+        }
+        .theme:hover{
+            background:#ffffff;
+            color:#000000;
+
+        }
+        .join{
+            display:block;
+            margin:20px auto;
+            padding:15px;
+            background:#0c9cee;
+            color:#ffffff;
+            border:none;
+            border-radius:20px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .join:hover{
+            background:#bae8e8;
+            color:black;
+        }
+        .coder{
+            color:#27296d;
+            font-weight:bold;
+            text-decoration:underline;
+        }
+       
+    </style>
+  </head>
+  <body>
+    <button class="theme">Change Theme</button>
+    <div class="content">
+    <h1>Lost in the Pages</h1>
+    <h2>My Love for Reading</h2>
+    <a href="https://en.wikipedia.org/wiki/Reading">
+    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/145/972/original/StockCake-Sunset_Reading_Session_1727861072.jpg?1727877879"
+    class="more-on-reading"/>
+    </a>
+    <div class="grid">
+    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/145/973/original/StockCake-Library_Reading_Haven_1727863705.jpg?1727878217"/>
+    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/145/974/original/StockCake-Enchanted_Bookshelf_Glow_1727861227.jpg?1727878364"/>
+    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/145/975/original/StockCake-Focused_Study_Time_1727864115.jpg?1727878507"/>
+    </div>
+    
+    <p>
+        Reading is the process of taking in the sense or meaning of symbols, often specifically those of a written language, by means of sight or touch.
+        Reading is generally an individual activity, done silently, although on occasion a person reads out loud for other listeners; or reads aloud for one's own use, for better comprehension.
+        Reading for pleasure has been linked to increased cognitive progress in vocabulary and mathematics during adolescence. Sustained high volume lifetime reading has been associated with high levels of academic attainment. Research suggests that reading can improve stress management, memory, focus, writing skills, and imagination.
+    </p>
+    <a href="https://en.wikipedia.org/wiki/Reading" class="link"> Learn More on Wikipedia</a>
+    <button class="join">
+        Start Reading
+    </button>
+</div>
+    <footer>
+        Built by 
+        <span class="coder">Ziprose Gori</span>
+    </footer>
+    <script>
+        function changeTheme() {
+            let body = document.querySelector("body");
+
+            if(body.classList.contains("dark")){
+                body.classList.remove("dark")
+            }else{
+                body.classList.add("dark");
+            }
+        }
+        let themeButton = document.querySelector(".theme");
+        themeButton.addEventListener("click", changeTheme);       
+            
+        function startReading() {
+            let firstName = prompt("What is your first name?");
+            let join= prompt("Would you like to join a Book Club?");
+            join= join.toLowerCase();
+            join= join.trim();
+            join= join.replace("yeah","yes");
+
+             if (join === "yes"){
+                alert ("Hello "+firstName+", we'll get back to you soon with personalized Book Club recommendations. Thanks!");
+            }else{
+                alert("Thank you "+firstName+", Maybe next time!");
+            }
+        }
+    
+        let joinButton = document.querySelector(".join");
+        joinButton.addEventListener("click", startReading);
+        
+        
+    </script>
+  </body>
+</html>
